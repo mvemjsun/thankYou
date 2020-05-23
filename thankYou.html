@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Thank You</title>
+
+    <style>
+      body {
+        font-family: 'Trebuchet MS';
+      }
+
+      /* set some global variables to be used */
+      :root {
+        --shade1: linear-gradient(135deg, #ff0000 0%,#aa1100 14%,#ffdd00 15%,#ffbb11 29%,#00ff00 30%,#55aa00 44%,#0000ff 56%,#000055 70%,#8a2be2 71%,#310062 85%,#c77df3 86%,#4b0082 100%);
+        --shade2: "";
+        --visible: 0;
+      }
+
+      /* Set up the sky with to span the whole screen */
+      .sky {
+        position: absolute;
+        width: 100%;
+        height: 625px;
+        background: linear-gradient(to bottom,#a6e6ff 75%, #ffffff 100%);
+      }
+
+      /* 
+      View container which will contain all the rainbow colors, its a flex container where items are laid in a column and aligned in center
+       */
+      .viewArea {
+        width: 800px;
+        height: 625px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* 
+        The first rainbow color. Each has the width that is approximately twice the height and a border radious of 50% of height to form a semi circle
+      */
+      .r {
+        width: 800px;
+        height: 422px;
+        background-color: red;
+        position: absolute;
+        border-top-left-radius: 400px;
+        border-top-right-radius: 400px;
+      }
+
+      .o {
+        width: 730px;
+        height: 390px;
+        background-color: orange;
+        position: absolute;
+        top: 40px;
+        border-top-left-radius: 365px;
+        border-top-right-radius: 365px;
+      }
+
+      .y {
+        width: 660px;
+        height: 350px;
+        background-color: yellow;
+        position: absolute;
+        top: 80px;
+        border-top-left-radius: 320px;
+        border-top-right-radius: 320px;
+      }
+
+      .g {
+        width: 590px;
+        height: 310px;
+        background-color: green;
+        position: absolute;
+        top: 120px;
+        border-top-left-radius: 295px;
+        border-top-right-radius: 295px;
+      }
+
+      .b {
+        width: 520px;
+        height: 270px;
+        background-color: blue;
+        position: absolute;
+        top: 160px;
+        border-top-left-radius: 260px;
+        border-top-right-radius: 260px;
+      }
+
+      .i {
+        width: 450px;
+        height: 230px;
+        background-color: indigo;
+        position: absolute;
+        top: 200px;
+        border-top-left-radius: 225px;
+        border-top-right-radius: 225px;
+      }
+
+      .v {
+        width: 380px;
+        height: 190px;
+        background-color: violet;
+        position: absolute;
+        top: 240px;
+        border-top-left-radius: 190px;
+        border-top-right-radius: 190px;
+      }
+
+      .w {
+        width: 310px;
+        height: 150px;
+        top: 280px;
+        background-color:#a6e6ff;
+        
+        position: absolute;
+        border-top-left-radius: 155px;
+        border-top-right-radius: 155px;
+      }
+
+      /* 
+        Text that says Thank You. Its background is set from the value of the variable `--shade1` which is changed at regular intervals
+        `-webkit-background-clip` causes the background to be clipped at the texts border. There is a transition animation set for
+        opacity that runs for 3 seconds and runs in a linear mode 
+      */
+      .thankYouText {
+        position: absolute;
+        width: 745px;
+        height: 150px;
+        top: 415px;
+
+        font-weight: bold;
+        font-size: 150px;
+        background: var(--shade1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+        transition: opacity 3s linear;
+      }
+
+      /* The pseudo element that "shadows" thankYouText*/
+      .thankYouText::before {
+        content: "Thank You";
+        background: var(--shade2);
+        position: absolute;
+        width: 745px;
+        height: 150px;
+
+        font-weight: bold;
+        font-size: 150px;
+        -webkit-background-clip: text;
+        opacity: var(--visible);
+        transition: opacity 3s linear;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="sky"></div>
+    <div class="viewArea">
+      <div class="r"></div>
+      <div class="o"></div>
+      <div class="y"></div>
+      <div class="g"></div>
+      <div class="b"></div>
+      <div class="i"></div>
+      <div class="v"></div>
+      <div class="w"></div>
+        <div class="thankYouText">
+          Thank You
+        </div>
+
+    <script>
+      const shades = [
+        "linear-gradient(135deg, #ff0000 0%,#aa1100 14%,#ffdd00 15%,#ffbb11 29%,#00ff00 30%,#55aa00 44%,#0000ff 56%,#000055 70%,#8a2be2 71%,#310062 85%,#c77df3 86%,#4b0082 100%)",
+        "linear-gradient(135deg, #4b0082 0%,#ff0000 14%,#aa1100 15%,#ffdd00 29%,#ffbb11 30%,#00ff00 44%,#55aa00 56%,#0000ff 70%,#000055 71%,#8a2be2 85%,#310062 86%,#c77df3 100%)",
+        "linear-gradient(135deg, #c77df3 0%,#4b0082 14%,#ff0000 15%,#aa1100 29%,#ffdd00 30%,#ffbb11 44%,#00ff00 56%,#55aa00 70%,#0000ff 71%,#000055 85%,#8a2be2 86%,#310062 100%)",
+        "linear-gradient(135deg, #310062 0%,#c77df3 14%,#4b0082 15%,#ff0000 29%,#aa1100 30%,#ffdd00 44%,#ffbb11 56%,#00ff00 70%,#55aa00 71%,#0000ff 85%,#000055 86%,#8a2be2 100%)",
+        "linear-gradient(135deg, #8a2be2 0%,#310062 14%,#c77df3 15%,#4b0082 29%,#ff0000 30%,#aa1100 44%,#ffdd00 56%,#ffbb11 70%,#00ff00 71%,#55aa00 85%,#0000ff 86%,#000055 100%)",
+        "linear-gradient(135deg, #000055 0%,#8a2be2 14%,#310062 15%,#c77df3 29%,#4b0082 30%,#ff0000 44%,#aa1100 56%,#ffdd00 70%,#ffbb11 71%,#00ff00 85%,#55aa00 86%,#0000ff 100%)",
+        "linear-gradient(135deg, #0000ff 0%,#000055 14%,#8a2be2 15%,#310062 29%,#c77df3 30%,#4b0082 44%,#ff0000 56%,#aa1100 70%,#ffdd00 71%,#ffbb11 85%,#00ff00 86%,#55aa00 100%)",
+        "linear-gradient(135deg, #55aa00 0%,#0000ff 14%,#000055 15%,#8a2be2 29%,#310062 30%,#c77df3 44%,#4b0082 56%,#ff0000 70%,#aa1100 71%,#ffdd00 85%,#ffbb11 86%,#00ff00 100%)",
+        "linear-gradient(135deg, #00ff00 0%,#55aa00 14%,#0000ff 15%,#000055 29%,#8a2be2 30%,#310062 44%,#c77df3 56%,#4b0082 70%,#ff0000 71%,#aa1100 85%,#ffdd00 86%,#ffbb11 100%)",
+        "linear-gradient(135deg, #ffbb11 0%,#00ff00 14%,#55aa00 15%,#0000ff 29%,#000055 30%,#8a2be2 44%,#310062 56%,#c77df3 70%,#4b0082 71%,#ff0000 85%,#aa1100 86%,#ffdd00 100%)",
+        "linear-gradient(135deg, #ffdd00 0%,#ffbb11 14%,#00ff00 15%,#55aa00 29%,#0000ff 30%,#000055 44%,#8a2be2 56%,#310062 70%,#c77df3 71%,#4b0082 85%,#ff0000 86%,#aa1100 100%)",
+        "linear-gradient(135deg, #aa1100 0%,#ffdd00 14%,#ffbb11 15%,#00ff00 29%,#55aa00 30%,#0000ff 44%,#000055 56%,#8a2be2 70%,#310062 71%,#c77df3 85%,#4b0082 86%,#ff0000 100%)"
+      ];
+      let index = 0;
+      let mainOrPseudo = "pseudo";
+      let style = document.querySelector(".thankYouText").style;
+
+      setInterval(() => {
+        if (index < 11) {
+          index = index + 1;
+        } else {
+          index = 0;
+        }
+        if (mainOrPseudo === "pseudo") {
+          style.setProperty("--shade2", shades[index]);
+          style.setProperty("--visible", "1");
+          mainOrPseudo = "main";
+        } else {
+          style.setProperty("--shade1", shades[index]);
+          style.setProperty("--visible", "0");
+          mainOrPseudo = "pseudo";
+        }
+      }, 3100);
+    </script>
+  </body>
+</html>
