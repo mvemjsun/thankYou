@@ -13,18 +13,18 @@ We have been trying to thank you to these key workers in various ways and one of
 ## Discussion of the HTML
 Most of the HTML is simple and quite self explanatory, I will discuss some of the key points here.
 
-- We will set up a "sky" then layout a "viewArea" in front of it that will house the rainbow colours and finally we will say "Thank You"
+- We will set up a `sky` then layout a `viewArea` in front of it that will house the rainbow colours and finally we will say "Thank You"
 
-- The "sky" CSS class has a width of 100% so that it spans the whole view & it has a height that is the same as the "viewArea" CSS class. We have also given it a "linear-gradient" so that it appears as sky above the white clouds.
+- The `sky` CSS class has a width of 100% so that it spans the whole view & it has a height that is the same as the `viewArea` CSS class. We have also given it a `linear-gradient` so that it appears as sky above the white clouds.
 
-- The "viewArea" is a flex container. The items in the flex container will be placed in a "column" one above the other and will be aligned in the centre.
-The individual rainbow colours are driven using the CSS classes "v", "i", "b", "g", "y", "o" & "r" in the HTML each for one of the 7 VIBGYOR 🌈colours. The classes are similar, they form a set of semi circles that are then laid on top of each other by a "top" displacement that grows by 40px for each colour. Similarly the "height" and "width" also decrease proportionally for each following colour.
-We then have the "thankYouText" CSS class and the "thankYouText::before" CSS pseudo class.
+- The `viewArea` is a flex container. The items in the flex container will be placed in a `column` one above the other and will be aligned in the centre.
+The individual rainbow colours are driven using the CSS classes `v`, `i`, `b`, `g`, `y`, `o` & `r` in the HTML each for one of the 7 VIBGYOR 🌈colours. The classes are similar, they form a set of semi circles that are then laid on top of each other by a `top` displacement that grows by 40px for each colour. Similarly the `height` and `width` also decrease proportionally for each following colour.
+We then have the `thankYouText` CSS class and the `thankYouText::before` CSS pseudo class.
 
-- The property "-webkit-background-clip" ensures that the background of the text is clipped at its content box.
+- The property `-webkit-background-clip` ensures that the background of the text is clipped at its content box.
 - The idleText CSS class 😎, 
-The idea behind setting up of this class and the pseudo class is so that we can display & hide (opacity) the main class "thankYouText" & the pseudo element "thankYouText::before" one after the other at regular interval.
-The "background" of the Thank You text is set using the global variables "shade1" & "shade2" respectively. These are set one by one from a standard set of gradients defined in the "shades" array.
+The idea behind setting up of this class and the pseudo class is so that we can display & hide (opacity) the main class `thankYouText` & the pseudo element `thankYouText::before` one after the other at regular interval.
+The `background` of the Thank You text is set using the global variables `shade1` & `shade2` respectively. These are set one by one from a standard set of gradients defined in the `shades` array.
 
 - The script  🚀
-When the page loads a scripts starts to execute at regular intervals that sets the variables "shade1" & "shade2" and the opacities of "thankYouText" and its pseudo element which gives the magic effect of the shining rainbow.
+When the page loads a scripts starts to execute at regular intervals that sets the variables `shade1` & `shade2` and the opacities of `thankYouText` and its pseudo element which gives the magic effect of the shining rainbow.
